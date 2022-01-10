@@ -1,6 +1,6 @@
 ﻿namespace RepositoryTemplate.IQueryablesTempates
 {
-    public interface IQueryableItems<T> : IQueryableItemsSet<T>, IQueryableItemsGet<T>
+    public interface IQueryableItems<T> //: IQueryableItemsSet<T>, IQueryableItemsGet<T>
     {
         
     }

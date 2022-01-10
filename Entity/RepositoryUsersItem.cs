@@ -2,7 +2,7 @@
 
 namespace UsersTestApi.Entity
 {
-    public class RepositoryUsersItem : RepositoryAbstract<UserItem>
+    public class RepositoryUsersItem : RepositoryBase<UserItem>
     {
 
     }

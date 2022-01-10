@@ -1,4 +1,6 @@
-﻿namespace OtherCustomTools
+﻿using System;
+
+namespace OtherCustomTools
 {
     public interface IResultOperation
     {

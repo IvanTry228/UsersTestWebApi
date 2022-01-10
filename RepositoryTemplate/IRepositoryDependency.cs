@@ -2,7 +2,7 @@
 {
     public interface IRepositoryDependency<T>
     {
-        public void SetRepository(IRepositoryGen<T> _setRepository);
-        public IRepositoryGen<T> GetRepository();
+        public void SetRepository(IRepositoryGeneral<T> _setRepository);
+        public IRepositoryGeneral<T> GetRepository();
     }
 }

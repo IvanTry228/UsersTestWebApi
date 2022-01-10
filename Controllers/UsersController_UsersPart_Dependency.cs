@@ -11,15 +11,15 @@ namespace UsersTestApi.Controllers
         private IValidatorQueryableItems<UserItem> currentValidatePost;
         private IValidatorQueryableItems<UserItem> currentValidatePut;
 
-        private IRepositoryGen<UserItem> currentRepository;
+        private IRepositoryGeneral<UserItem> currentRepository;
 
-        public void SetRepository(IRepositoryGen<UserItem> _setRepository)
+        public void SetRepository(IRepositoryGeneral<UserItem> _setRepository)
         {
             currentRepository = _setRepository; 
             CallApplyInjection();
         }
 
-        public IRepositoryGen<UserItem> GetRepository()
+        public IRepositoryGeneral<UserItem> GetRepository()
         {
             return currentRepository;
         }
@@ -34,7 +34,7 @@ namespace UsersTestApi.Controllers
             currentValidatePost = new ValidatePostUsers();
             currentValidatePut = new ValidatePutItems();
 
-            var fastGeneratedRepository = new RepositoryUsersItem();
+            var fastGeneratedRepository = new RepositoryBase<UserItem>();
 
             fastGeneratedRepository.SetInjectDbSetEntity(MainDataHolder.Instance.AppDbContextHolder.UsersItems);
             fastGeneratedRepository.SetInjectAppDbContext(MainDataHolder.Instance.AppDbContextHolder);

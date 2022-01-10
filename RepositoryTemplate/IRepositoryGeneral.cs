@@ -3,7 +3,7 @@ using RepositoryTemplate.IQueryablesTempates;
 
 namespace RepositoryTemplate
 {
-    public interface IRepositoryGen<T> : IQueryableItems<T> //where T : class
+    public interface IRepositoryGeneral<T> : IQueryableItemsSet<T>, IQueryableItemsGet<T> ///IQueryableItems<T> //where T : class
     {
         T GetItemById(int _id);
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace RepositoryTemplate
 {
-    public class RepositoryFakeWithList<T> : RepositoryAbstract<T> where T : class
+    public class RepositoryFakeWithList<T> : RepositoryBase<T> where T : class
     {
         IList<T> dataListEmmulate = new List<T>();
 
