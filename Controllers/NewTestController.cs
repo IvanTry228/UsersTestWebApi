@@ -23,17 +23,16 @@ namespace UsersTestWebApi.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpGet("get1")]
+        public string Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 2).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return "ping1";
+        }
+
+        [HttpGet("get2")]
+        public string Get2()
+        {
+            return "ping2";
         }
     }
 }
