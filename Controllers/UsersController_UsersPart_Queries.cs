@@ -11,7 +11,7 @@ namespace UsersTestApi.Controllers
 {
     //[ApiController]
     //[Route("[controller]")]
-    public partial class HomeController : Controller
+    public partial class UsersController : Controller
     {
         //get
         [HttpGet("Ping")]

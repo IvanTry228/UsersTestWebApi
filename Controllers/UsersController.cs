@@ -4,11 +4,11 @@ using Microsoft.Extensions.Logging;
 
 namespace UsersTestApi.Controllers
 {
-    public partial class HomeController : Controller
+    public partial class UsersController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<UsersController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public UsersController(ILogger<UsersController> logger)
         {
             _logger = logger;
             PartialOnConstructor();
