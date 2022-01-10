@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace UsersTestApi.Entity
 {
@@ -8,6 +9,8 @@ namespace UsersTestApi.Entity
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            //usersdb
+            string connectString = Configuration.GetConnectionString("BloggingDatabase");// Configuration.GetConnectionString("BloggingDatabase"); // .("usersdb");
             optionsBuilder.UseSqlServer("Server=(localdb)" +
                                         "\\mssqllocaldb;" +
                                         "Database=userstestdb;" +
