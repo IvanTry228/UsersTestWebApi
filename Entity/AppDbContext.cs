@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+
 namespace UsersTestApi.Entity
 {
     public class AppDbContext : DbContext
