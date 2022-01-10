@@ -11,8 +11,6 @@ namespace RepositoryTemplate
 
         void UpdateItem(T _entity);
 
-        //void AddItems(IEnumerable<T> _entitiesCollection);
-
         void RemoveItem(T _entity);
 
         IEnumerable<T> GetAll();

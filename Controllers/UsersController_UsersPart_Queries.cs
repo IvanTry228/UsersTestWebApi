@@ -24,10 +24,6 @@ namespace UsersTestApi.Controllers
         public JsonResult Users(string attribute, string descParam = QueryToolHelper.paramOrderAsc,
                                         int currentPage = 1, int countPerPage = 10, int limit = 10)
         {
-            //log query:
-            var fastLog = new { attribute, descParam, currentPage, countPerPage, limit };
-            Console.WriteLine("Users query = " + fastLog.ToString());
-
             IQueryable<UserItem> queryResult = currentRepository.GetQueryableItems();
             //sort by attribute:
             queryResult = QueryHelperConcreteLogic.OrderByAttributeReflectQuery(queryResult, attribute, descParam);

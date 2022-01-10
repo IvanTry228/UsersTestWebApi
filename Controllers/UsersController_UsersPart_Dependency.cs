@@ -6,7 +6,7 @@ using UsersTestRest.OperationLogicImplement.Validations;
 
 namespace UsersTestApi.Controllers
 {
-    public partial class UsersController : Controller, IRepositoryDependency<UserItem> //IQueryableInjectedItemsDog
+    public partial class UsersController : Controller, IRepositoryDependency<UserItem>
     {
         private IValidatorQueryableItems<UserItem> currentValidatePost;
         private IValidatorQueryableItems<UserItem> currentValidatePut;
