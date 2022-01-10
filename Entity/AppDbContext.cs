@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System;
+using System.Configuration;
+using System.IO;
 
 namespace UsersTestApi.Entity
 {
@@ -9,12 +12,13 @@ namespace UsersTestApi.Entity
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //usersdb
-            string connectString = Configuration.GetConnectionString("BloggingDatabase");// Configuration.GetConnectionString("BloggingDatabase"); // .("usersdb");
-            optionsBuilder.UseSqlServer("Server=(localdb)" +
-                                        "\\mssqllocaldb;" +
-                                        "Database=userstestdb;" +
-                                        "Trusted_Connection=True;");
+            var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                 .SetBasePath(Path.Combine(Directory.GetCurrentDirectory()))
+                 .AddJsonFile("appsettings.json", optional: false)
+                 .AddJsonFile($"appsettings.{envName}.json", optional: false)
+                 .Build();
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
         }
     }
 }
