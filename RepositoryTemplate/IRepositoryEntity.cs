@@ -2,7 +2,7 @@
 
 namespace RepositoryTemplate
 {
-    public interface IRepositoryEntity<T> : IRepositoryGeneral<T> where T : class
+    public interface IRepositoryEntity<T> where T : class //: IRepositoryGeneral<T> 
     {
         void SetInjectDbSetEntity(DbSet<T> _injectedDb);
 

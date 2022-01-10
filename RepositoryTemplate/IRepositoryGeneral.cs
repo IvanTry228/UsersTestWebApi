@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using RepositoryTemplate.IQueryablesTempates;
+﻿using System.Linq;
+using System.Collections.Generic;
 
 namespace RepositoryTemplate
 {
-    public interface IRepositoryGeneral<T> : IQueryableItemsSet<T>, IQueryableItemsGet<T> ///IQueryableItems<T> //where T : class
+    public interface IRepositoryGeneral<T>
     {
         T GetItemById(int _id);
 
@@ -16,5 +16,10 @@ namespace RepositoryTemplate
         IEnumerable<T> GetAll();
 
         void SaveChangesApply();
+
+        //get and set queryables (old in interfaces):
+        void SetQueryableItems(IQueryable<T> _setQueryableItems);
+
+        IQueryable<T> GetQueryableItems();
     }
 }

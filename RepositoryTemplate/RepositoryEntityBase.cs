@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace RepositoryTemplate
 {
-    public class RepositoryBase<T> : IRepositoryEntity<T> where T : class
+    public class RepositoryEntityBase<T> : IRepositoryGeneral<T>, IRepositoryEntity<T> where T : class
     {
         private DbSet<T> currentDbSet;
         private DbContext currentDbContext;

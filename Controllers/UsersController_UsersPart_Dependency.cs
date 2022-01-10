@@ -34,7 +34,7 @@ namespace UsersTestApi.Controllers
             currentValidatePost = new ValidatePostUsers();
             currentValidatePut = new ValidatePutItems();
 
-            var fastGeneratedRepository = new RepositoryBase<UserItem>();
+            var fastGeneratedRepository = new RepositoryEntityBase<UserItem>();
 
             fastGeneratedRepository.SetInjectDbSetEntity(MainDataHolder.Instance.AppDbContextHolder.UsersItems);
             fastGeneratedRepository.SetInjectAppDbContext(MainDataHolder.Instance.AppDbContextHolder);
