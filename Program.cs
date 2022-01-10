@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UsersTestApi;
+using UsersTestApi.OperationLogicImplement;
 
 namespace UsersTestWebApi
 {
@@ -13,6 +15,9 @@ namespace UsersTestWebApi
     {
         public static void Main(string[] args)
         {
+            //fast fake fil:
+            //UsersFastFakeFiller.CallFillRandomElementToDb(MainDataHolder.Instance.AppDbContextHolder.UsersItems);
+            //MainDataHolder.Instance.AppDbContextHolder.SaveChanges();
             CreateHostBuilder(args).Build().Run();
         }
 

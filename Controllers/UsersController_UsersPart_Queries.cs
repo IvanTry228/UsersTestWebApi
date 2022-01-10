@@ -92,7 +92,6 @@ namespace UsersTestApi.Controllers
         }
 
         //delete
-        //[HttpDelete]
         [HttpDelete("User")]
         public JsonResult UserDelete(int id, string deleteToken)
         {
