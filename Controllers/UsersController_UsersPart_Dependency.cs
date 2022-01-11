@@ -26,18 +26,22 @@ namespace UsersTestApi.Controllers
 
         private partial void PartialOnConstructor()
         {
-            FastSelfInjectionDb();
+            FastSelfInjection();
         }
 
-        private void FastSelfInjectionDb()
+        private void FastSelfInjection()
         {
             currentValidatePost = new ValidatePostUsers();
             currentValidatePut = new ValidatePutItems();
 
             var fastGeneratedRepository = new RepositoryEntityBase<UserItem>();
 
-            fastGeneratedRepository.SetInjectDbSetEntity(MainDataHolder.Instance.AppDbContextHolder.UsersItems);
-            fastGeneratedRepository.SetInjectAppDbContext(MainDataHolder.Instance.AppDbContextHolder);
+            ///fastGeneratedRepository.SetInjectDbSetEntity(MainDataHolder.Instance.AppDbContextHolder.UsersItems);
+            ///fastGeneratedRepository.SetInjectAppDbContext(MainDataHolder.Instance.AppDbContextHolder);
+
+            AppDbContext testAppDbCont = new AppDbContext();
+            fastGeneratedRepository.SetInjectDbSetEntity(testAppDbCont.UsersItems);
+            fastGeneratedRepository.SetInjectAppDbContext(testAppDbCont);
 
             SetRepository(fastGeneratedRepository);
             //CallApplyInjection();

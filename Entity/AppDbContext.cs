@@ -9,6 +9,11 @@ namespace UsersTestApi.Entity
     {
         public DbSet<UserItem> UsersItems { get; set; }
 
+        //public AppDbContext(DbContextOptions<AppDbContext> options)
+        //    : base(options)
+        //{
+        //}
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
