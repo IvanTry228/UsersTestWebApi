@@ -1,6 +1,10 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RepositoryTemplate;
+using UsersTestApi.Entity;
 
 namespace UsersTestApi.Controllers
 {
@@ -8,9 +12,11 @@ namespace UsersTestApi.Controllers
     {
         private readonly ILogger<UsersController> _logger;
 
-        public UsersController(ILogger<UsersController> logger)
+        public UsersController(ILogger<UsersController> logger, AppDbContext appContext) // IRepositoryEntity<UserItem> _repository
         {
             _logger = logger;
+            currentRepository = GetRepositoryFromContext(appContext);
+
             PartialOnConstructor();
         }
 

@@ -13,6 +13,15 @@ namespace UsersTestApi.Controllers
 
         private IRepositoryGeneral<UserItem> currentRepository;
 
+        private IRepositoryGeneral<UserItem> GetRepositoryFromContext(AppDbContext _testAppDbCont)
+        {
+            IRepositoryEntity<UserItem>  createdRepository = new RepositoryEntityBase<UserItem>();
+            createdRepository.SetInjectDbSetEntity(_testAppDbCont.UsersItems);
+            createdRepository.SetInjectAppDbContext(_testAppDbCont);
+
+            return (IRepositoryGeneral<UserItem>)createdRepository;
+        }
+
         public void SetRepository(IRepositoryGeneral<UserItem> _setRepository)
         {
             currentRepository = _setRepository; 
@@ -34,17 +43,7 @@ namespace UsersTestApi.Controllers
             currentValidatePost = new ValidatePostUsers();
             currentValidatePut = new ValidatePutItems();
 
-            var fastGeneratedRepository = new RepositoryEntityBase<UserItem>();
-
-            ///fastGeneratedRepository.SetInjectDbSetEntity(MainDataHolder.Instance.AppDbContextHolder.UsersItems);
-            ///fastGeneratedRepository.SetInjectAppDbContext(MainDataHolder.Instance.AppDbContextHolder);
-
-            AppDbContext testAppDbCont = new AppDbContext();
-            fastGeneratedRepository.SetInjectDbSetEntity(testAppDbCont.UsersItems);
-            fastGeneratedRepository.SetInjectAppDbContext(testAppDbCont);
-
-            SetRepository(fastGeneratedRepository);
-            //CallApplyInjection();
+            SetRepository(currentRepository);
         }
 
         private void CallApplyInjection()

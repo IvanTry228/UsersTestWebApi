@@ -9,20 +9,20 @@ namespace UsersTestApi.Entity
     {
         public DbSet<UserItem> UsersItems { get; set; }
 
-        //public AppDbContext(DbContextOptions<AppDbContext> options)
-        //    : base(options)
-        //{
-        //}
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+            : base(options)
         {
-            var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                 .SetBasePath(Path.Combine(Directory.GetCurrentDirectory()))
-                 .AddJsonFile("appsettings.json", optional: false)
-                 .AddJsonFile($"appsettings.{envName}.json", optional: false)
-                 .Build();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
         }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+        //    IConfigurationRoot configuration = new ConfigurationBuilder()
+        //         .SetBasePath(Path.Combine(Directory.GetCurrentDirectory()))
+        //         .AddJsonFile("appsettings.json", optional: false)
+        //         .AddJsonFile($"appsettings.{envName}.json", optional: false)
+        //         .Build();
+        //    optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+        //}
     }
 }
