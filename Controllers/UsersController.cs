@@ -12,7 +12,7 @@ namespace UsersTestApi.Controllers
     {
         private readonly ILogger<UsersController> _logger;
 
-        public UsersController(ILogger<UsersController> logger, AppDbContext appContext) // IRepositoryEntity<UserItem> _repository
+        public UsersController(ILogger<UsersController> logger, AppDbContext appContext)
         {
             _logger = logger;
             currentRepository = GetRepositoryFromContext(appContext);
