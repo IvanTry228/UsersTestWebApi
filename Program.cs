@@ -7,6 +7,8 @@ namespace UsersTestWebApi
     {
         public static void Main(string[] args)
         {
+            TestPath.TestLog();
+
             //fast fake fil:
             //UsersFastFakeFiller.CallFillRandomElementToDb(MainDataHolder.Instance.AppDbContextHolder.UsersItems);
             //MainDataHolder.Instance.AppDbContextHolder.SaveChanges();
